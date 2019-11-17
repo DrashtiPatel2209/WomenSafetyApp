@@ -22,8 +22,8 @@ namespace Women_Safety_App
                // _SQLiteConnection = DependencyService.Get<ISQLiteInterface>().GetSQLiteConnection();
                 _SQLiteConnection.CreateTable<User>();
             }
-            catch(Exception){
-                System.Diagnostics.Debug.WriteLine("exception : ");
+            catch(Exception ex){
+                System.Diagnostics.Debug.WriteLine("exception : " + ex.Message);
             }
         
     }

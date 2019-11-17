@@ -38,7 +38,7 @@ public partial class LogInPage : ContentPage
             }
             else
             {
-                userData = new UserDb();
+                //userData = new UserDb();
                 logesh = useridValidationEntry.Text;
                 var textresult = userData.updateUserValidation(useridValidationEntry.Text);
                 if (textresult)
@@ -68,7 +68,7 @@ public partial class LogInPage : ContentPage
             {
                 try
                 {
-                    userData = new UserDb();
+                   // userData = new UserDb();
                     var return1 = userData.updateUser(logesh, firstPassword.Text);
                     passwordView.IsVisible = false;
                     if (return1)
@@ -86,12 +86,12 @@ public partial class LogInPage : ContentPage
         {
             if (userNameEntry.Text != null && passwordEntry.Text != null)
             {
-                userData = new UserDb();
+                //userData = new UserDb();
                 var validData = userData.LoginValidate(userNameEntry.Text, passwordEntry.Text);
                 if (validData)
                 {
-                    popupLoadingView.IsVisible = false;
-                    await Navigation.PushAsync(new LogInPage());
+                  //  popupLoadingView.IsVisible = false;
+                    await DisplayAlert("Login Successfull", "Successfull", "OK");
                 }
                 else
                 {

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using SQLite;
+using SQLite.Net;
 
 namespace Women_Safety_App
 {
     public interface ISQLiteInterface
     {
-        SQLiteConnection GetSQLiteConnection();
+        SQLite.SQLiteConnection GetSQLiteConnection();
     }
 }

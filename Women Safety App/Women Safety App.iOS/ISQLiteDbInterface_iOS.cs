@@ -14,14 +14,14 @@ namespace Women_Safety_App.iOS
 {
     public class ISQLiteDbInterface_iOS 
     {
-        public SQLite.Net.SQLiteConnection GetConnection()
+        public SQLite.SQLiteConnection GetConnection()
         {
             var fileName = "Student.db3";
             var documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             var libraryPath = Path.Combine(documentsPath, "..", "Library");
             var path = Path.Combine(libraryPath, fileName);
             var platform = new SQLite.Net.Platform.XamarinIOS.SQLitePlatformIOS();
-            var connection = new SQLite.Net.SQLiteConnection(platform, path);
+            var connection = new SQLite.SQLiteConnection(path);
             return connection;
         }
     }
