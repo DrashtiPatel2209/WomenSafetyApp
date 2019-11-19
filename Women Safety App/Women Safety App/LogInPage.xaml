@@ -20,7 +20,7 @@
                     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                         <StackLayout x:Name="stackIncrese1" Orientation="Vertical" HeightRequest="150" WidthRequest="300" BackgroundColor="White">
                             <Label x:Name="labelenter" Text="Enter User Mail id" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"></Label>
-                            <Entry x:Name="useridValidationEntry" Keyboard="Email" IsPassword="True" Placeholder="Enter User id Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
+                            <Entry x:Name="useridValidationEntry" Keyboard="Email" IsPassword="True" Placeholder="Enter Email ID Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
                             <Button x:Name="UpdateButton" Clicked="userIdCheckEvent" BackgroundColor="#ff6600-" Text="Check" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
                         </StackLayout>
                     </StackLayout>
@@ -29,8 +29,8 @@
                     <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                         <StackLayout x:Name="stackIncrese" Orientation="Vertical" HeightRequest="180" WidthRequest="300" BackgroundColor="White">
                             <Label x:Name="passwordLabel" Text="Password" VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand"></Label>
-                            <Entry x:Name="firstPassword"  ReturnType="Next" Keyboard="Email" IsPassword="True" Placeholder="Enter User id Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
-                            <Entry x:Name="secondPassword" ReturnType="Done" Keyboard="Email" IsPassword="True" Placeholder="Enter User id Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
+                            <Entry x:Name="firstPassword"  ReturnType="Next" Keyboard="Email" IsPassword="True" Placeholder="Enter Password Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
+                            <Entry x:Name="secondPassword" ReturnType="Done" Keyboard="Email" IsPassword="True" Placeholder="Enter Confirm Password Here" TextColor="Black" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" ></Entry>
                             <Label x:Name="warningLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" />
                             <Button x:Name="submitButton"  Clicked="Password_ClickedEvent" BackgroundColor="#ff6600-" Text="Update" HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand"/>
                         </StackLayout>

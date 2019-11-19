@@ -84,14 +84,15 @@ public partial class LogInPage : ContentPage
         }
         private async void LoginValidation_ButtonClicked(object sender, EventArgs e)
         {
-            if (userNameEntry.Text != null && passwordEntry.Text != null)
+            if ((userNameEntry.Text != null && passwordEntry.Text != null) && (userNameEntry.Text != "" && passwordEntry.Text != ""))
             {
                 //userData = new UserDb();
                 var validData = userData.LoginValidate(userNameEntry.Text, passwordEntry.Text);
                 if (validData)
                 {
-                  //  popupLoadingView.IsVisible = false;
-                    await DisplayAlert("Login Successfull", "Successfull", "OK");
+                     popupLoadingView.IsVisible = false;
+                    
+                    await Navigation.PushAsync(new NavigationPage(new ContacDetails()));
                 }
                 else
                 {
