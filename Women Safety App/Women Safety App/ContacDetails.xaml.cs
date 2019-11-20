@@ -17,4 +17,8 @@ namespace Women_Safety_App
             InitializeComponent();
         }
     }
+    //private void Handle_PickerIndexChangedEvent(object sender, System.EventArgs e)
+    //{
+    //    viewModel.HandlerIndexChanged(); // or whatever
+    //}
 }

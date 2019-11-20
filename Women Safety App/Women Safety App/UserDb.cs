@@ -43,7 +43,7 @@ namespace Women_Safety_App
     public string AddUser(User user)
     {
         var data = _SQLiteConnection.Table<User>();
-        var d1 = data.Where(x => x.name == user.name && x.userName == user.userName).FirstOrDefault();
+        var d1 = data.Where(x => x.name.ToLower() == user.name.ToLower()).FirstOrDefault();
         if (d1 == null)
         {
             _SQLiteConnection.Insert(user);
@@ -57,7 +57,7 @@ namespace Women_Safety_App
         var data = _SQLiteConnection.Table<User>();
         var d1 = (from values in data
                   where values.name == userid
-                  select values).Single();
+                  select values).FirstOrDefault();
         if (d1 != null)
         {
             return true;

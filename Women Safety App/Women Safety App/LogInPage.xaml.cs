@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace Women_Safety_App
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
@@ -103,10 +104,10 @@ public partial class LogInPage : ContentPage
             else
             {
                 popupLoadingView.IsVisible = false;
-                await DisplayAlert("He He", "Enter User Name and Password Please", "OK");
+                await DisplayAlert("Message", "Enter User Name and Password Please", "OK");
             }
         }
-
+    
 
     }
 }
