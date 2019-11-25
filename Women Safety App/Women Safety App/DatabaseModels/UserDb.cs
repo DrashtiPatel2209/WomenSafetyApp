@@ -85,7 +85,7 @@ namespace Women_Safety_App
     public bool LoginValidate(string userName1, string pwd1)
     {
         var data = _SQLiteConnection.Table<User>();
-        var d1 = data.Where(x => x.name == userName1 && x.password == pwd1).FirstOrDefault();
+        var d1 = data.Where(x => x.name.ToLower() == userName1.ToLower() && x.password == pwd1).FirstOrDefault();
         if (d1 != null)
         {
             return true;

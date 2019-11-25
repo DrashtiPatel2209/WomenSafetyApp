@@ -7,20 +7,19 @@ using SQLite.Net;
 
 namespace Women_Safety_App
 {
-    class EmerygencyContact
+    public class EmerygencyContact
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
     public string name { get; set; }
+    public string username { get; set; }
 
-    [MaxLength(10)]
+        [MaxLength(10)]
     public string phone1 { get; set; }
 
     [MaxLength(10)]
-    public string phone2 { get; set; }
+    public string relation { get; set; }
 
-    [MaxLength(10)]
-    public string phone3 { get; set; }
     public EmerygencyContact()
     {
     }

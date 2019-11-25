@@ -6,9 +6,10 @@
              mc:Ignorable="d"
              x:Class="Women_Safety_App.ContacDetails">
 
-
+  
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="LogOut" Priority="0"/>
+        <ToolbarItem IconImageSource="Images/logoutIcon.png"  Priority="1" Clicked="LogOutClicked"/>
+        <ToolbarItem IconImageSource="Images/listicon.png" Priority="0" Clicked="ListCalled"/>
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -25,8 +26,8 @@
             <x:String>1</x:String>
             <x:String>2</x:String>
         </controls:CustomPicker.Items>
-    </controls:CustomPicker>--><!--
-            <Picker x:Name="picker"
+    </controls:CustomPicker>-->
+        <!--<Picker x:Name="picker"
         Title="Select a monkey"
         TitleColor="Red">
                 <Picker.ItemsSource>
@@ -46,11 +47,26 @@
 
         <AbsoluteLayout Margin="5,0,5,5">
             <FlexLayout IsVisible="True" JustifyContent="SpaceEvenly" Direction="Column" AlignItems="Center" Margin="30,0,30,0" >
-                <Label x:Name="phoneWarLabel" Text="Welcome" IsVisible="True" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
-                <Entry x:Name="emergencyContact1" ReturnType="Next" MaxLength="10" Placeholder="Emergency Contact 1" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Telephone" />
-                <Entry x:Name="emergencyContact2" ReturnType="Next" MaxLength="10" Placeholder="Emergency Contact 2" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Telephone" />
-                <Entry x:Name="emergencyContact3" ReturnType="Next" MaxLength="10" Placeholder="Emergency Contact 3" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Telephone" />
-                <!--<Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up"/>-->
+                <!--<Label x:Name="phoneWarLabel" Text="{}" IsVisible="True" TextColor="Black" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>-->
+                <Entry x:Name="name" ReturnType="Next" MaxLength="10" Placeholder="Name" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Text" />
+
+                <Picker x:Name="relationName"
+                    Title="Select a relation"
+                    TitleColor="Black" WidthRequest="350" SelectedIndexChanged ="OnPickerSelectedChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Father</x:String>
+                            <x:String>Mother</x:String>
+                            <x:String>Sister</x:String>
+                            <x:String>Brother</x:String>
+                            <x:String>Freind</x:String>
+                            <x:String>Other</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Entry x:Name="emergencyContact1" ReturnType="Next" MaxLength="10" Placeholder="Emergency Contact" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Telephone" />
+                
+                <Button x:Name="Save" Clicked="Save_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Save"/>
                 <!--<Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />-->
             </FlexLayout>
         </AbsoluteLayout>

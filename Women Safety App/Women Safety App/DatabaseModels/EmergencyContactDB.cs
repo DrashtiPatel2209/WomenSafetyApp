@@ -41,7 +41,14 @@ namespace Women_Safety_App
     {
         _SQLiteConnection.Delete<EmerygencyContact>(id);
     }
-    public string AddEmergencyContanct(EmerygencyContact emerygencycontact)
+       public List<EmerygencyContact> GetUserEmergencyContancts(string username)
+        {
+            var d1 = new List<EmerygencyContact>();
+            var data = _SQLiteConnection.Table<EmerygencyContact>().ToList();
+            d1 = data.Where(x => x.username.ToLower() == username.ToLower()).ToList();
+            return d1;
+        }
+        public string AddEmergencyContanct(EmerygencyContact emerygencycontact)
     {
         var data = _SQLiteConnection.Table<EmerygencyContact>();
         var d1 = data.Where(x => x.name.ToLower() == emerygencycontact.name.ToLower()).FirstOrDefault();
@@ -58,8 +65,8 @@ namespace Women_Safety_App
             if (d2 != null)
             {
                     d2.phone1 = emerygencycontact.phone1;
-                    d2.phone2 = emerygencycontact.phone2;
-                    d2.phone3 = emerygencycontact.phone3;
+                    d2.name = emerygencycontact.name;
+                    d2.relation = emerygencycontact.relation;
                     return "Sucessfully Updated";
             }
             else

@@ -91,9 +91,9 @@ public partial class LogInPage : ContentPage
                 var validData = userData.LoginValidate(userNameEntry.Text, passwordEntry.Text);
                 if (validData)
                 {
-                     popupLoadingView.IsVisible = false;
-                    
-                    await Navigation.PushAsync(new NavigationPage(new ContacDetails()));
+
+                    Women_Safety_App.App.userName = userNameEntry.Text;
+                    await Navigation.PushAsync(new LoggedIn());
                 }
                 else
                 {

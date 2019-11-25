@@ -6,6 +6,7 @@ namespace Women_Safety_App
 {
     public partial class App : Application
     {
+        public static string userName { get; set; }
         public App()
         {
             InitializeComponent();
@@ -28,4 +29,16 @@ namespace Women_Safety_App
             // Handle when your app resumes
         }
     }
+
+    //public class loginData
+    //{
+    //    private string userName { get; set; }
+    //    public void setUsername(string uname) {
+    //        userName = uname;
+    //    }
+    //    public string getUsername()
+    //    {
+    //        return userName;
+    //    }
+    //}
 }
