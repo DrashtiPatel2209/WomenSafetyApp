@@ -49,28 +49,36 @@ namespace Women_Safety_App.Droid
                     var datad = new Women_Safety_App.EmergencyContactDB();
                     var rawdata = new List<EmerygencyContact>();
                     rawdata = datad.GetUserEmergencyContancts(App.userName);
-                    var phonos = new List<string>();
-                    var LocationTask = GetLocation();
-                    foreach (EmerygencyContact element in rawdata)
+                    if (rawdata.Count > 0)
                     {
-                        phonos.Add(element.phone1);
+                        var phonos = new List<string>();
+                        var LocationTask = GetLocation();
+                        foreach (EmerygencyContact element in rawdata)
+                        {
+                            phonos.Add(element.phone1);
+                        }
+                        try
+                        {
+
+                            var task = SendSms("I am in Emergency.", phonos.ToArray());
+                            Task.WhenAll(LocationTask);
+                            //var result = AsyncContext.RunTask(MyAsyncMethod).Result;
+                            volumeKeyPressedCount = 0;
+                        }
+                        catch (FeatureNotSupportedException ex)
+                        {
+                            // Sms is not supported on this device.
+                        }
+                        catch (Exception ex)
+                        {
+                            // Other error has occurred.
+                        }
                     }
-                    try
-                    {
-                      
-                       var task = SendSms("I am in Emergency." , phonos.ToArray());
-                        Task.WhenAll(LocationTask);
-                        //var result = AsyncContext.RunTask(MyAsyncMethod).Result;
+                    else {
                         volumeKeyPressedCount = 0;
+                        Toast.MakeText(this, "No Contacts Added", ToastLength.Long);
                     }
-                    catch (FeatureNotSupportedException ex)
-                    {
-                        // Sms is not supported on this device.
-                    }
-                    catch (Exception ex)
-                    {
-                        // Other error has occurred.
-                    }
+                  
                 }
                 
             }
@@ -82,7 +90,13 @@ namespace Women_Safety_App.Droid
                     var datad = new Women_Safety_App.EmergencyContactDB();
                     var rawdata = new EmerygencyContact();
                     rawdata = datad.GetUserEmergencyContanctsForCall(App.userName);
-                    PlacePhoneCall(rawdata.phone1);
+                    if (rawdata == null) {
+                        Toast.MakeText(this, "No Contacts Added", ToastLength.Long);
+                    }
+                    else {
+                        PlacePhoneCall(rawdata.phone1);
+                       
+                    }
                     volumeUpKeyPressedCount = 0;
                 }
             }

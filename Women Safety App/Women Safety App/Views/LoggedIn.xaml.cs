@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -90,6 +91,7 @@ namespace Women_Safety_App
             {
                 // Source of data items.
                 ItemsSource = rawdata,
+                
                 //IsPullToRefreshEnabled = true,
 
                 // Define template for displaying each item.
@@ -128,7 +130,7 @@ namespace Women_Safety_App
                                         }
                                         }
                                 },
-                           
+                          
                         },
                         
                     };
@@ -136,13 +138,15 @@ namespace Women_Safety_App
                
 
             };
-
+            
             listView.ItemSelected += (object sender, SelectedItemChangedEventArgs e) =>
             {
-                DisplayAlert("ItemSelected", e.SelectedItem.ToString(), "Ok");
+                // DisplayAlert("ItemSelected", e.SelectedItem.ToString(), "Ok");
                 //var ContactDetailPage = new ContacDetails();
                 //ContactDetailPage.BindingContext = e.SelectedItem;
-                //this.Navigation.PushAsync(ContactDetailPage);
+                //EmerygencyContact selected = new EmerygencyContact();
+
+                //this.Navigation.PushAsync(new ContacDetails(e.SelectedItem));
             };
             // add to the ViewCell's ContextActions property
 
@@ -160,6 +164,7 @@ namespace Women_Safety_App
                 }
                
             };
+            
             this.ToolbarItems.Add(addbutton);
             this.ToolbarItems.Add(logoutbutton);
             InitializeComponent();
@@ -197,7 +202,7 @@ namespace Women_Safety_App
         //    await Navigation.PushAsync(new LogInPage());
         //}
         private void AddItemCalled() {
-            this.Navigation.PushAsync(new ContacDetails());
+            this.Navigation.PushAsync(new ContacDetails(new EmerygencyContact()));
         }
         private void LogOutClicked()
         {
@@ -207,5 +212,26 @@ namespace Women_Safety_App
         }
 
     }
+    class EqualsParameterContextConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value == ((View)parameter).BindingContext;
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

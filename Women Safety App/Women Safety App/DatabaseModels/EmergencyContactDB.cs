@@ -52,8 +52,22 @@ namespace Women_Safety_App
         {
             var d1 = new EmerygencyContact();
             var data = _SQLiteConnection.Table<EmerygencyContact>().ToList();
-            d1 = data.Where(x => x.username.ToLower() == username.ToLower()).FirstOrDefault();
-            return d1;
+            d1 = data.Where(x => x.username.ToLower() == username.ToLower() && x.priority.ToLower() == "high").FirstOrDefault();
+            if (d1 == null) {
+                d1 = data.Where(x => x.username.ToLower() == username.ToLower() && x.priority.ToLower() == "medium").FirstOrDefault();
+                if (d1 == null)
+                {
+                    d1 = data.Where(x => x.username.ToLower() == username.ToLower() && x.priority.ToLower() == "low").FirstOrDefault();
+                    return d1;
+                }
+                else {
+                    return d1;
+                }
+            } 
+            else {
+                return d1;
+            }
+            
         }
 
         public string AddEmergencyContanct(EmerygencyContact emerygencycontact)

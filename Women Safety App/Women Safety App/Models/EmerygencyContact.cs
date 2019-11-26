@@ -20,6 +20,7 @@ namespace Women_Safety_App
     [MaxLength(10)]
     public string relation { get; set; }
 
+    public string priority { get; set; }
     public EmerygencyContact()
     {
     }

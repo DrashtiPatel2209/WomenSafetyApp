@@ -65,7 +65,17 @@
                     </Picker.ItemsSource>
                 </Picker>
                 <Entry x:Name="emergencyContact1" ReturnType="Next" MaxLength="10" Placeholder="Emergency Contact" FontSize="Medium" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand"  TextColor="Black" Keyboard="Telephone" />
-                
+                <Picker x:Name="priority"
+                    Title="Select a Priority"
+                    TitleColor="Black" WidthRequest="350" SelectedIndexChanged ="OnPickerPrioritySelectedChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>High</x:String>
+                            <x:String>Medium</x:String>
+                            <x:String>Low</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
                 <Button x:Name="Save" Clicked="Save_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Save"/>
                 <!--<Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />-->
             </FlexLayout>

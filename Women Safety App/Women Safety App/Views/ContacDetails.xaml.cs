@@ -15,29 +15,30 @@ namespace Women_Safety_App
         EmerygencyContact emergencyContact = new EmerygencyContact();
         EmerygencyContact existingEmergencyContact = new EmerygencyContact();
         EmergencyContactDB emergencyContactDB = new EmergencyContactDB();
-        string username ="";
+        string username = "";
         string selectedRelation = "";
-        public ContacDetails()
+        string selectedPriority = "";
+        public ContacDetails(EmerygencyContact e)
         {
             username = Women_Safety_App.App.userName;
             InitializeComponent();
             emergencyContact1.ReturnCommand = new Command(() => emergencyContact1.Focus());
             //relationName = new Command(() => relationName.Focus());
             name.ReturnCommand = new Command(() => name.Focus());
-
+        
         }
-       
+
         private async void Save_ButtonClicked(object sender, EventArgs args)
         {
 
-           
+
             if ((string.IsNullOrWhiteSpace(emergencyContact1.Text)) || (string.IsNullOrWhiteSpace(selectedRelation)) ||
-                (string.IsNullOrWhiteSpace(name.Text))
+                (string.IsNullOrWhiteSpace(name.Text)) || (string.IsNullOrWhiteSpace(selectedPriority))
                 ) 
             {
                 await DisplayAlert("Enter Data", "Enter Valid Data", "OK");
             }
-
+           
             else
             {
 
@@ -45,7 +46,7 @@ namespace Women_Safety_App
                 emergencyContact.username = Women_Safety_App.App.userName;
                 emergencyContact.phone1 = emergencyContact1.Text.ToString();
                 emergencyContact.relation = selectedRelation.ToString();
-                //emergencyContact.phone3 = emergencyContact3.Text.ToString();
+                emergencyContact.priority = selectedPriority.ToString();
                 try
                 {
                     var retrunvalue = emergencyContactDB.AddEmergencyContanct(emergencyContact);
@@ -74,7 +75,12 @@ namespace Women_Safety_App
             var selectedItem = picker.SelectedItem; // This is the model selected in the picker
             selectedRelation = selectedItem.ToString();
         }
-
+        private async void OnPickerPrioritySelectedChanged(object sender, EventArgs args)
+        {
+            Picker picker = sender as Picker;
+            var selectedItem = picker.SelectedItem; // This is the model selected in the picker
+            selectedPriority = selectedItem.ToString();
+        }
         private async void LogOutClicked(object sender, EventArgs args) {
 
             Women_Safety_App.App.userName = "";
