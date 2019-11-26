@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Women_Safety_App
 {
-    class EmergencyContactDB
+    public class EmergencyContactDB
     {
         private SQLite.SQLiteConnection _SQLiteConnection;
         public EmergencyContactDB()
@@ -48,6 +48,14 @@ namespace Women_Safety_App
             d1 = data.Where(x => x.username.ToLower() == username.ToLower()).ToList();
             return d1;
         }
+        public EmerygencyContact GetUserEmergencyContanctsForCall(string username)
+        {
+            var d1 = new EmerygencyContact();
+            var data = _SQLiteConnection.Table<EmerygencyContact>().ToList();
+            d1 = data.Where(x => x.username.ToLower() == username.ToLower()).FirstOrDefault();
+            return d1;
+        }
+
         public string AddEmergencyContanct(EmerygencyContact emerygencycontact)
     {
         var data = _SQLiteConnection.Table<EmerygencyContact>();

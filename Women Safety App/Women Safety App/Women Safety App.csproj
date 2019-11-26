@@ -17,7 +17,7 @@
     <EmbeddedResource Update="Views\ContacDetails.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoggedIn.xaml">
+    <EmbeddedResource Update="Views\LoggedIn.xaml"> 
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\LogInPage.xaml">

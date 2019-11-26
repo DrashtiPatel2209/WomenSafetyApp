@@ -19,10 +19,25 @@ namespace Women_Safety_App
         string title = "demo";
         public LoggedIn()
         {
-
+            
             /// ContextDemoList = new ListView();
             var datad = new EmergencyContactDB();
             var rawdata = datad.GetUserEmergencyContancts(App.userName);
+            bool AddButtonEnable = true;
+            if (rawdata == null)
+            {
+                AddButtonEnable = true;
+            }
+            else if (rawdata != null && rawdata.Count < 3)
+            {
+                AddButtonEnable = true;
+            }
+            else if (rawdata != null && rawdata.Count >= 3)
+            {
+                AddButtonEnable = false;
+             
+            }
+
             Label header = new Label
             {
                 Text = "List Of Contacts",
@@ -32,7 +47,8 @@ namespace Women_Safety_App
             ToolbarItem addbutton = new ToolbarItem { 
                 IconImageSource = "Resources/drawable/PlusIcon.png",
                 Priority = 0,
-                Command = new Command(this.AddItemCalled)
+                Command = new Command(this.AddItemCalled),
+                IsEnabled = AddButtonEnable
                 //Text = "Add"
             };
             ToolbarItem logoutbutton = new ToolbarItem
@@ -58,7 +74,7 @@ namespace Women_Safety_App
                 var mi = ((MenuItem)sender);
                 Debug.WriteLine("Delete Context Action clicked: " + mi.CommandParameter);
             };
-           
+
             //itemList.Add("A");
             //itemList.Add("B");
             //itemList.Add("C");
@@ -68,8 +84,7 @@ namespace Women_Safety_App
             //itemList.Add("G");
             //ContextDemoList.ItemsSource = itemList;
 
-           
-
+          
             // Create the ListView.
             ListView listView = new ListView
             {
