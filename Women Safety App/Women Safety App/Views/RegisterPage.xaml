@@ -24,7 +24,7 @@
                     </Entry.Behaviors>-->
                 </Entry>
                 <Label x:Name="phoneWarLabel" Text="" IsVisible="False" TextColor="Blue" FontSize="15" BackgroundColor="Transparent" FlexLayout.AlignSelf="End"/>
-                <Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
+                <Button x:Name="signUp" Clicked="SignupValidation_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#FFB6C1"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Sign Up"/>
                 <Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />
             </FlexLayout>
         </AbsoluteLayout>

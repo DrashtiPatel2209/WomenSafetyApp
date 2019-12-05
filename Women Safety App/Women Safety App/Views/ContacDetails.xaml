@@ -76,7 +76,7 @@
                         </x:Array>
                     </Picker.ItemsSource>
                 </Picker>
-                <Button x:Name="Save" Clicked="Save_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#00b33c"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Save"/>
+                <Button x:Name="Save" Clicked="Save_ButtonClicked" FontSize="Medium" TextColor="White" BorderColor="Black" BackgroundColor="#e75480"  CornerRadius="5" FlexLayout.AlignSelf="Stretch"  HorizontalOptions="CenterAndExpand" Text="Save"/>
                 <!--<Button TextColor="Black" BackgroundColor="Transparent" Clicked="login_ClickedEvent" Text="Login" FontSize="13" FlexLayout.AlignSelf="Start" />-->
             </FlexLayout>
         </AbsoluteLayout>

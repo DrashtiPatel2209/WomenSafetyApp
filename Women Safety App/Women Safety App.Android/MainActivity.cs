@@ -60,7 +60,7 @@ namespace Women_Safety_App.Droid
                         try
                         {
 
-                            var task = SendSms("I am in Emergency.", phonos.ToArray());
+                            var task = SendSms("I am in emergency. I need Help.", phonos.ToArray());
                             Task.WhenAll(LocationTask);
                             //var result = AsyncContext.RunTask(MyAsyncMethod).Result;
                             volumeKeyPressedCount = 0;
@@ -93,6 +93,7 @@ namespace Women_Safety_App.Droid
                     if (rawdata == null) {
                         Toast.MakeText(this, "No Contacts Added", ToastLength.Long);
                     }
+
                     else {
                         PlacePhoneCall(rawdata.phone1);
                        

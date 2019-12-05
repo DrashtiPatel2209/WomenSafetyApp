@@ -89,14 +89,7 @@ namespace Women_Safety_App
             // Create the ListView.
             ListView listView = new ListView
             {
-                // Source of data items.
-                ItemsSource = rawdata,
-                
-                //IsPullToRefreshEnabled = true,
-
-                // Define template for displaying each item.
-                // (Argument of DataTemplate constructor is called for 
-                //      each item; it must return a Cell derivative.)
+                ItemsSource = rawdata,            
              
                 ItemTemplate = new DataTemplate(() =>
                 {
@@ -106,11 +99,6 @@ namespace Women_Safety_App
 
                     Label relationLabel = new Label { TextColor = Color.Black };
                     relationLabel.SetBinding(Label.TextProperty, "relation");
-
-                    //Label phonLabel = new Label { TextColor = Color.Black };
-                    //phonLabel.SetBinding(Label.TextProperty, "phone1");
-
-                    // Return an assembled ViewCell.
                     return  new ViewCell
                     {
                         View = new StackLayout
